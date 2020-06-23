@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        int lineCount = scanner.nextInt();
+        scanner.nextLine();
+        for (int i = 1; i <= lineCount; i++){
+        String currentLine = scanner.nextLine();
+        char[] currentArray = currentLine.toCharArray();
+        if(currentArray.length >= 2  &&  currentArray.length <= 10000) {
+            System.out.println(printeven(currentArray) + " " + printodd(currentArray));
+            }
+        }
+    }    
+        private static String printeven(char[] a){
+            String output = "";
+            for(int i=0; i <= a.length-1; i++){
+                if (i % 2 == 0){
+                    output = output + a[i];
+                }
+            }
+            return output;        
+        }           
+
+        private static String printodd(char[] b){
+            String output = "";
+            for(int i=0; i <= b.length-1; i++){
+                if (i % 2 != 0){
+                    output = output + b[i];
+                }
+            }
+            return output;
+        }     
+}
