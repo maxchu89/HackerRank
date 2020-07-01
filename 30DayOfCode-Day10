@@ -1,0 +1,53 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+public class Solution {
+
+    static Stack<Integer> convert (int n){
+        Stack<Integer> s = new Stack<>();
+        int r = 0;
+        while (n >= 1) {
+            r = n % 2;
+            n = n/2;
+            s.push(r);
+        }
+        return s;
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        int oneCount = 0;
+        Stack<Integer> bn = convert(n);
+        int i = 0;
+        int currentMax = 0;
+        int prevMax = 0;
+        // System.out.println(bn);
+        while (bn.empty()==false){
+            i = bn.pop();
+            // System.out.println("i is " + i);
+            if (i == 1){
+                currentMax++;
+            }
+            else {
+                prevMax = java.lang.Math.max(prevMax, currentMax);
+                currentMax = 0;
+            }
+        oneCount = java.lang.Math.max(prevMax, currentMax);
+        // System.out.println("PM is " + prevMax);
+        // System.out.println("CM is " + currentMax);
+        // System.out.println("one is " + oneCount);
+
+        }
+
+        System.out.println(oneCount);
+
+        scanner.close();
+    }
+}
