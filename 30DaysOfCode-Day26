@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static int getFee (int d, int m, int y, int dd, int dm, int dy){
+        int fee = 0;
+        if (y > dy){
+            fee = 10000;
+        }
+        else if (y == dy){
+            if (m > dm){
+                fee = (m - dm) * 500;
+            }
+            else if (m == dm){
+                if (d > dd){
+                    fee = (d - dd) * 15;
+                }
+            }
+        }
+    return fee;
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+         Scanner sc = new Scanner(System.in);
+         int returnDay = sc.nextInt();
+         int returnMonth = sc.nextInt();
+         int returnYear = sc.nextInt();
+         int dueDay = sc.nextInt();
+         int dueMonth = sc.nextInt();
+         int dueYear = sc.nextInt();
+        //  System.out.println(returnDay + "," + returnMonth + "," + returnYear);
+        //  System.out.println(dueDay + "," + dueMonth + "," + dueYear);
+        System.out.println(getFee(returnDay,returnMonth,returnYear,dueDay,dueMonth,dueYear));
+    }
+}
